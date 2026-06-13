@@ -21,3 +21,26 @@ class Recipe(models.Model):
     def __str__(self):
 
         return self.title
+    
+class Ingredient(models.Model):
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name='ingredients'
+    )
+
+    name = models.CharField(max_length=200)
+
+    quantity = models.CharField(max_length=100)
+
+class Step(models.Model):
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name='steps'
+    )
+
+    order = models.PositiveIntegerField()
+
+    description = models.TextField()
+
