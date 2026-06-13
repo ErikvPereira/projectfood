@@ -1,0 +1,51 @@
+<h1>Minhas Receitas</h1>
+
+<p>
+    Olá {{ request.user.username }}
+</p>
+
+<hr>
+
+<div>
+
+    <a href="">
+        <button>
+            Criar Receita
+        </button>
+    </a>
+
+    <a href="">
+        <button>
+            Adicionar Receita com IA
+        </button>
+    </a>
+
+</div>
+
+<hr>
+
+<h2>Lista de receitas</h2>
+
+{% if recipes %}
+
+    <ul>
+
+        {% for recipe in recipes %}
+
+            <li>
+
+                {{ recipe.title }}
+
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+{% else %}
+
+    <p>
+        Você ainda não possui receitas.
+    </p>
+
+{% endif %}

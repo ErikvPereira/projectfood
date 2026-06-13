@@ -4,9 +4,19 @@
 
     {% csrf_token %}
 
-    <input type="text" name="username" placeholder="Usuário">
+    {{ form.non_field_errors }}
 
-    <input type="password" name="password" placeholder="Senha">
+    <p>
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        {{ form.username.errors }}
+    </p>
+
+    <p>
+        {{ form.password.label_tag }}
+        {{ form.password }}
+        {{ form.password.errors }}
+    </p>
 
     <button type="submit">
         Entrar
